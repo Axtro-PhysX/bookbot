@@ -28,6 +28,7 @@ def main():
         count = word_count(file_contents)
 
         # Print the count
+        print("--- Begin report of text file ---")
         print(f"{count} words found in document.")
 
         # Print a new line for clarity
