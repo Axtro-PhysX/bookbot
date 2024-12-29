@@ -8,7 +8,8 @@ For example:
 
 This output is from the result of reading text from "frankenstein.txt", derived from the book of the same name by Mary Shelley.
 
-**Instructions**
+**Instructions**:
+
 Within the code, find the `text_path` variable on line 33. Edit the path with the relative path of whatever file you would like to analyze.
 
 _Functionality for adding the relative path within the command line will be added at a later date._
