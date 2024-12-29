@@ -30,8 +30,11 @@ def main():
         # Print the count
         print(f"{count} words found in document.")
 
+        # Print a new line for clarity
+        print("\n")
+
         # Return character dictionary
         counted_chars = count_chars(file_contents)
-        print(f"{counted_chars}")
+        print(f"List of characters: {counted_chars}")
 
 main()
