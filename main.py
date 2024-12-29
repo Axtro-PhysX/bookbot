@@ -4,17 +4,19 @@ def word_count(file):
 
 def count_chars(file):
     # Create empty dictionary to store char count
+    # Convert text to lowercase, so that 'A' and 'a' are counted the same
     lowered = file.lower()
     char_dict = {}
 
     # Loop through each char in the file contents
     for c in lowered:
-        # If char was seen before, increment count by 1
-        if c in char_dict:
-            char_dict[c] += 1
+        # Only count the character if it's a letter in the alphabet
+        if c.isalpha():
+            if c in char_dict:
+                char_dict[c] += 1
         # If it's a new character, add it to the dictionary with +1 count
-        else:
-            char_dict[c] = 1    
+            else:
+                char_dict[c] = 1    
     
     return char_dict
 
@@ -30,12 +32,15 @@ def main():
         # Print the count
         print("--- Begin report of text file ---")
         print(f"{count} words found in document.")
+        print("\n") # Newline for clarity
 
-        # Print a new line for clarity
-        print("\n")
-
-        # Return character dictionary
+        # Get character dictionary
         counted_chars = count_chars(file_contents)
-        print(f"List of characters: {counted_chars}")
+
+        # Create a sorted report of characters
+        print("Character frequency report:")
+        # Convert dictionary items to a list of tuples (char, count)
+        # Sort by count in descending order
+
 
 main()
