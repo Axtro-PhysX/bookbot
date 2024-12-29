@@ -18,7 +18,15 @@ def count_chars(file):
             else:
                 char_dict[c] = 1    
     
-    return char_dict
+    # Convert the dictionary to a list of dictionaries for easy sorting
+    char_list = []
+    for char, count in char_dict.items():
+        char_list.append({'char': char, 'num': count})
+    
+    # Sort the list by number of occurrences in descending order
+    char_list.sort(key=lambda x: x['num'], reverse=True)
+
+    return char_list
 
 def main():
     # Open the file
@@ -31,16 +39,18 @@ def main():
 
         # Print the count
         print("--- Begin report of text file ---")
+        print("\n")
         print(f"{count} words found in document.")
-        print("\n") # Newline for clarity
+        print("\n")
 
-        # Get character dictionary
-        counted_chars = count_chars(file_contents)
+        # Get sorted list of character frequencies
+        char_list = count_chars(file_contents)
 
         # Create a sorted report of characters
         print("Character frequency report:")
-        # Convert dictionary items to a list of tuples (char, count)
-        # Sort by count in descending order
+        print("----------------------------")
 
+        for char_info in char_list:
+            print(f"The '{char_info['char']}' character was found {char_info['num']} times.")
 
 main()
